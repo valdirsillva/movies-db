@@ -1,29 +1,26 @@
-import { useEffect, useState } from "react";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 import { Header } from "./components/Header";
-import { MoviesList } from "./components/MoviesList";
-import { MoviesContainer } from "./styles/MoviesContainer";
-import { MovieService } from "./services/MovieService";
+import { Home } from "./views/Home";
+import { About } from "./views/About";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const fetchMovies = async () => {
-    const { data } = await MovieService.getMovies();
-    setMovies(data.results);
-
-    console.log(movies)
-  }
-
-  useEffect(() => {
-    fetchMovies()
-  }, [])
 
   return (
     <div className="App">
-      <Header />
+      <BrowserRouter>
+        <Header />
 
-      <MoviesContainer>
-        <MoviesList movies={movies} />
-      </MoviesContainer>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
