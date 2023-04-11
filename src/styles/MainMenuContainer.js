@@ -7,8 +7,9 @@ export const MainMenuContainer = styled.nav`
         padding: 0;
 
         li {
-            display: inline-block;
-            margin-right: 10px; 
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
     }
 `

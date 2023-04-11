@@ -1,11 +1,12 @@
 import { MovieItem } from "./MovieItem"
+import { MainMenuElement } from "../styles/MainMenuElement"
 
 export const MoviesList = ({ movies }) => {
     return (
         <section>
-            <ul>
-                {movies.map(m => <MovieItem title={m.title} />)}
-            </ul>
+            <MainMenuElement>
+                {movies.map(m => <MovieItem movie={m} />)}
+            </MainMenuElement>
         </section>
     )
 }
