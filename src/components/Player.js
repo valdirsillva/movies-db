@@ -6,8 +6,10 @@ export const Player = ({ contextUrl }) => {
         <ReactPlayer
             url={contextUrl}
             controls={true}
-            width={640}
+            width={540}
             height={340}
         />
+
+
     )
 }

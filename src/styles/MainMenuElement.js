@@ -6,4 +6,5 @@ export const MainMenuElement = styled.ul`
     flex-wrap: wrap;
     flex-direction: row;
     aligm-item: center;
+    justify-content: center;
 `

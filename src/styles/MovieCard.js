@@ -16,10 +16,27 @@ export const MovieCard = styled.li`
         text-align:center;
         color: white;
         text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 20px;
     }
 
     a:hover {
-        color: red;
+        color: white;
+        background-color: red;
+        padding: 10px 20px;
+        border-radius: 20px;
+        transition: 1s ease;
+    }
+
+    div {
+        display:flex;
+        width: 300px;
+        align-items: center;
+        justify-content: center;
+        
+        a {
+            justify-content: center;
+        }
     }
 
 `
