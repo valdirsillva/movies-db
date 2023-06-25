@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
+import { Header } from '../components/Header';
 import { MovieCard } from '../styles/MovieCard';
 import { MovieService } from '../services/MovieService';
 import { MovieSectionPoster } from '../styles/MovieSectionPoster';
@@ -36,14 +37,15 @@ export const MovieDetail = () => {
         return response
     }
 
-
     useEffect(() => {
         fetchMovie()
     }, [])
 
-
     return (
         <>
+            <Header
+                fieldSearch={false}
+            />
             <MovieCard>
                 <MovieSectionPoster >
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=" " />
@@ -60,7 +62,6 @@ export const MovieDetail = () => {
                         />
 
                     </article>
-
                 </MovieSectionPoster>
             </MovieCard>
         </>

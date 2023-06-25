@@ -1,8 +1,9 @@
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { MoviesList } from "../components/MoviesList"
 import { MoviesContainer } from "../styles/MoviesContainer"
 import { MovieService } from "../services/MovieService";
+import { Header } from "../components/Header"
 
 export const Home = () => {
     const [movies, setMovies] = useState([]);
@@ -16,8 +17,11 @@ export const Home = () => {
     }, [])
 
     return (
-        <MoviesContainer>
-            <MoviesList movies={movies} />
-        </MoviesContainer>
+        <Fragment>
+            <Header fieldSearch={true} />
+            <MoviesContainer>
+                <MoviesList movies={movies} />
+            </MoviesContainer>
+        </Fragment>
     )
 }
