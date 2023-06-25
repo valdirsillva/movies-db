@@ -1,12 +1,19 @@
-import React from 'react';
+import ReactPlayer from 'react-player'
+import React, { useState } from 'react';
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
-import { Player } from '../Player';
 
-export function Trailler({ url, title }) {
+export function Trailler({ title, handleOnClick }) {
+    const [movieKey, setMovieKey] = useState('')
+    const getHandleOnClick = async () => {
+        const keyCode = await handleOnClick()
+        setMovieKey(keyCode)
+    }
     return (
         <AlertDialog.Root>
             <AlertDialog.Trigger asChild>
-                <button className="text-violet11 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center border-violet-800 rounded-[4px] bg-violet-800 px-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px] focus:shadow-black">
+                <button
+                    onClick={getHandleOnClick}
+                    className="text-violet11 hover:bg-mauve3 inline-flex h-[35px] items-center justify-center border-violet-800 rounded-[4px] bg-violet-800 px-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px] focus:shadow-black">
                     Trailler
                 </button>
             </AlertDialog.Trigger>
@@ -17,11 +24,13 @@ export function Trailler({ url, title }) {
                         {title}
                     </AlertDialog.Title>
                     <AlertDialog.Description className="text-mauve11 mt-4 mb-5 text-[15px] leading-normal">
-                        <Player
-                            url={url}
+
+                        <ReactPlayer
+                            url={`https://www.youtube.com/embed/${movieKey}`}
                             controls={true}
                             width={540}
                             height={340}
+
                         />
 
                     </AlertDialog.Description>
