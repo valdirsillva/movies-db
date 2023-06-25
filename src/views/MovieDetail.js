@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-import { MovieService } from '../services/MovieService';
 import { MovieCard } from '../styles/MovieCard';
+import { MovieService } from '../services/MovieService';
 import { MovieSectionPoster } from '../styles/MovieSectionPoster';
 import { Trailler } from '../components/modal/Trailler';
 
 export const MovieDetail = () => {
     const { id } = useParams();
+
     const [movie, setMovie] = useState({});
 
     const fetchMovie = async () => {
@@ -14,9 +15,31 @@ export const MovieDetail = () => {
         setMovie(data);
     }
 
+    const getDetailsMovie = async (id) => {
+        const response = await MovieService.getDetailsMovieById(id)
+
+        if (response.data.results[1]) {
+            const dubbedTrailer = response.data.results[1].key
+            // Retorna key p/ trailler dublado
+            return dubbedTrailer
+        }
+
+        if (response.data.results[0]) {
+            const subtitledTrailer = response.data.results[0].key
+            // Retorna key p/ trailler legendado
+            return subtitledTrailer
+        }
+    }
+
+    const viewTraillerMovie = async () => {
+        const response = await getDetailsMovie(movie.id)
+        return response
+    }
+
+
     useEffect(() => {
         fetchMovie()
-    })
+    }, [])
 
 
     return (
@@ -32,15 +55,13 @@ export const MovieDetail = () => {
                         </p>
 
                         <Trailler
+                            handleOnClick={viewTraillerMovie}
                             title={movie.title}
-                            url={`https://www.youtube.com/embed/${movie.id}`}
                         />
+
                     </article>
 
-
-
                 </MovieSectionPoster>
-
             </MovieCard>
         </>
     )
