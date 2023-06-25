@@ -6,4 +6,6 @@ export const MovieSectionPoster = styled.section`
    padding: 2rem 5rem;
    gap: 30px;
 
+   width: 100%;
+
 ` 
