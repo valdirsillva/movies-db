@@ -7,4 +7,5 @@ export const MainMenuElement = styled.ul`
     flex-direction: row;
     aligm-item: center;
     justify-content: center;
+    margin-top: 5rem;
 `

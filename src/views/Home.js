@@ -5,11 +5,14 @@ import { MoviesContainer } from "../styles/MoviesContainer"
 import { MovieService } from "../services/MovieService";
 import { Header } from "../components/Header"
 import { Spinner } from "../components/spinner/Spinner";
+import { GenresMovies } from "../components/genres/Genres";
 
 export const Home = () => {
     const [page, setPage] = useState(1)
     const [loading, setLoading] = useState(false)
     const [movies, setMovies] = useState([]);
+
+    const [genres, setGenres] = useState([]);
 
     const fetchMovies = async () => {
         const { data } = await MovieService.getMovies(page);
@@ -35,19 +38,27 @@ export const Home = () => {
 
     window.addEventListener('scroll', handleScroll)
 
+    const getGenres = async () => {
+        const { data } = await MovieService.getMoviesGenres()
+        setGenres(data.genres)
+    }
 
     useEffect(() => {
         fetchMovies()
+        getGenres()
     }, [])
 
     return (
         <Fragment>
             <Header fieldSearch={true} />
             <MoviesContainer>
+
+                <GenresMovies genres={genres} />
+
                 <MoviesList movies={movies} />
 
-                <Spinner loagind={loading} />
             </MoviesContainer>
+            <Spinner loagind={loading} />
         </Fragment>
     )
 }

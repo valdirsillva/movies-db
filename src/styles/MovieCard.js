@@ -5,10 +5,11 @@ export const MovieCard = styled.li`
     display: flex;
     flex-direction: column;
     align-items:center;
+    
     gap:0;
 
     img {
-        width: 300px;
+        width: 200px;
         border-radius: 10px;
     }
 
@@ -30,7 +31,7 @@ export const MovieCard = styled.li`
 
     div {
         display:flex;
-        width: 300px;
+        width: 200px;
         align-items: center;
         justify-content: center;
         
