@@ -2,7 +2,7 @@
 
 export function GenresMovies({ genres }) {
     return (
-        <aside className="w-8/12 flex justify-start flex-col ">
+        <aside className="min-w-[350px] flex justify-start flex-col ">
             <h3 className="text-4xl mb-10 ml-5">Generos</h3>
             <div className="flex flex-row flex-wrap gap-3 mb-10 px-5 " >
                 {genres.map(({ id, name }) => {

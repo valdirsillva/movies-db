@@ -11,6 +11,11 @@ export const MovieCard = styled.li`
     > img {
         width: 200px;
         border-radius: 10px;
+        transition: scale 400ms;
+    }
+
+    img:hover {
+        scale: 110%;
     }
 
     a {
