@@ -48,7 +48,13 @@ export const MovieDetail = () => {
             />
             <MovieCard>
                 <MovieSectionPoster >
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt=" " />
+                    <img
+
+                        loading="lazy"
+                        className='w-[350px] rounded-lg'
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt={movie.title}
+                    />
 
                     <article className='w-full flex flex-col mb-5 items-start'>
                         <h1 className='text-violet-500 text-5xl mb-5 pb-7 font-medium '>{movie.title}</h1>

@@ -5,7 +5,7 @@ import { SpanPercent } from '../styles/SpanPercent';
 export const MovieItem = ({ movie }) => {
     return (
         <MovieCard>
-            <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt=" " />
+            <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} loading='lazy' alt=" " />
 
             <SpanPercent>
                 {movie.vote_average}%

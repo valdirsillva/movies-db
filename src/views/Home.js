@@ -30,9 +30,9 @@ export const Home = () => {
             setTimeout(() => {
                 const p = page + 1
                 setPage(p)
-                fetchMovies(p)
+                // fetchMovies(p)
                 setLoading(false)
-            }, 2500)
+            }, 1500)
         }
     }
 
@@ -44,9 +44,12 @@ export const Home = () => {
     }
 
     useEffect(() => {
-        fetchMovies()
         getGenres()
-    }, [])
+    })
+
+    useEffect(() => {
+        fetchMovies()
+    }, [page])
 
     return (
         <Fragment>

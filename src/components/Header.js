@@ -20,7 +20,7 @@ export const Header = ({ fieldSearch }) => {
             </Topo>
 
             <HeaderContent>
-                {fieldSearch ?? (
+                {fieldSearch === true ? (
                     <Fragment>
                         <h2> Bem-vindo(a).</h2>
                         <p>Milhões de filmes, séries e pessoas para descobrir. Explore já.</p>
@@ -29,7 +29,7 @@ export const Header = ({ fieldSearch }) => {
                             placeholder="Pesquisar por filme, programa de tv, reality show..."
                         />
                     </Fragment>
-                )}
+                ) : ''}
             </HeaderContent>
             <MainMenu />
         </HeaderContainer>

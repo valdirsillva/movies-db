@@ -8,7 +8,7 @@ export const MovieCard = styled.li`
     
     gap:0;
 
-    img {
+    > img {
         width: 200px;
         border-radius: 10px;
     }
