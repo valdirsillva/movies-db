@@ -49,7 +49,6 @@ export const MovieDetail = () => {
             <MovieCard>
                 <MovieSectionPoster >
                     <img
-
                         loading="lazy"
                         className='w-[350px] rounded-lg'
                         src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -57,10 +56,17 @@ export const MovieDetail = () => {
                     />
 
                     <article className='w-full flex flex-col mb-5 items-start'>
-                        <h1 className='text-violet-500 text-5xl mb-5 pb-7 font-medium '>{movie.title}</h1>
+                        <section className='w-full flex flex-row '>
+                            <h1 className=' w-full text-violet-500 text-5xl pb-7 font-medium '>{movie.title}</h1>
+                            <a href='/'
+                                className="text-violet hover:bg-mauve3 inline-flex h-[35px] items-center justify-center border-violet-800 rounded-[4px] bg-violet-800 px-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
+                                Voltar
+                            </a>
+                        </section>
                         <p className='w-9/12 mb-10 h-3/6 '>
                             {movie.overview}
                         </p>
+
 
                         <Trailler
                             handleOnClick={viewTraillerMovie}
