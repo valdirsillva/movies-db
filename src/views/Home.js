@@ -19,7 +19,7 @@ export const Home = () => {
         setMovies([...movies, ...data.results]);
     }
 
-    const handleScroll = (event) => {
+    const handleScroll = () => {
         const sizeScroll = window.scrollY
         const sizeHeight = window.innerHeight
         const documentHeight = document.body.offsetHeight
@@ -45,7 +45,7 @@ export const Home = () => {
 
     useEffect(() => {
         getGenres()
-    })
+    }, [])
 
     useEffect(() => {
         fetchMovies()
@@ -55,11 +55,9 @@ export const Home = () => {
         <Fragment>
             <Header fieldSearch={true} />
             <MoviesContainer>
-
                 <GenresMovies genres={genres} />
 
                 <MoviesList movies={movies} />
-
             </MoviesContainer>
             <Spinner loagind={loading} />
         </Fragment>
