@@ -8,7 +8,7 @@ export const MovieItem = ({ movie }) => {
             <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} loading='lazy' alt=" " />
 
             <SpanPercent>
-                {movie.vote_average}%
+                {movie.vote_average.toFixed(1)}%
             </SpanPercent>
 
             <div>
