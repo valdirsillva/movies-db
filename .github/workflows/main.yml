@@ -23,7 +23,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            valdirsillva/movie-db:v1${{github.run.number}}
+            valdirsillva/movie-db:${{github.run.number}}
             valdirsillva/movie-db:latest
   CD: 
     runs-on: ubuntu-latest
@@ -35,5 +35,11 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{secrets.K8S_CONFIG}}
+      - name: Deploy to Kubernetes cluster
+        uses: Azure/k8s-deploy@v4
+        with:
+          images: valdirsillva/movie-db:${{github.run.number}}
+          manifests: | 
+            k8s/deployment.yaml
           
     
