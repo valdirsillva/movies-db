@@ -23,7 +23,7 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            valdirsillva/movie-db:v1
+            valdirsillva/movie-db:v1${{github.run.number}}
             valdirsillva/movie-db:latest
           
           
