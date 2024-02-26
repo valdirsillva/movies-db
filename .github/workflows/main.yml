@@ -1,0 +1,24 @@
+name: CI-CD
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - name: Construção da imagem Docker
+        uses: docker/build-push-action@v5.1.0
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags:
+            valdirsillva/movie-db:v1
+            valdirsillva/movie-db:latest
+          
+          
+    
