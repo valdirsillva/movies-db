@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'image-header-top': "url(../public/the-movie-db.jpg)",
+      },
+    },
   },
   plugins: [],
 }

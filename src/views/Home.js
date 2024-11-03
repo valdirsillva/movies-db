@@ -1,11 +1,10 @@
 
-import { Fragment, useEffect, useState } from "react";
-import { MoviesList } from "../components/MoviesList"
-import { MoviesContainer } from "../styles/MoviesContainer"
-import { MovieService } from "../services/MovieService";
-import { Header } from "../components/Header"
-import { Spinner } from "../components/spinner/Spinner";
-import { GenresMovies } from "../components/genres/Genres";
+import { Fragment, useEffect, useState } from "react"
+import { MoviesList } from "../components/movies/movie-list"
+import { MovieService } from "../services/MovieService"
+import { Header } from "../components/header/header"
+import { Spinner } from "../components/spinner/Spinner"
+import { GenresMovies } from "../components/genres/genres-movies"
 
 export const Home = () => {
     const [page, setPage] = useState(1)
@@ -54,11 +53,15 @@ export const Home = () => {
     return (
         <Fragment>
             <Header fieldSearch={true} />
-            <MoviesContainer>
-                <GenresMovies genres={genres} />
-
-                <MoviesList movies={movies} />
-            </MoviesContainer>
+            <section className="md:w-full flex md:flex-row xs:flex-col bg-[#151516]">
+                <div className="invisible hidden md:flex md:w-1/4 md:visible">
+                   <GenresMovies genres={genres} />
+                </div>
+                
+                <div className="md:w-3/4 xs:w-full">
+                    <MoviesList movies={movies} />
+                </div>
+            </section>
             <Spinner loagind={loading} />
         </Fragment>
     )

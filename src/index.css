@@ -10,5 +10,30 @@ body {
   box-sizing: border-box;
   background: #121214;
   text-decoration: none;
+}
 
+/* custom scrollbar customized */
+/* width */
+::-webkit-scrollbar {
+  width: 1px;
+  border-radius: 0;
+  cursor: not-allowed;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* background: #64B819; */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* background: transparent; */
+  /* width: 1px; */
+  border-radius: 1px;
+  background: #04b200;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  /* background: rgb(75, 80, 80);  */
 }
