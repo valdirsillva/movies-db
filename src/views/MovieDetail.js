@@ -47,18 +47,18 @@ export const MovieDetail = () => {
             fieldSearch={false}
          />
 
-         <section className="flex flex-col ">
-            <main className="flex flex-row gap-10 px-8 py-14 ">
+         <section className="w-full md:flex flex-col flex-wrap">
+            <main className="flex md:flex-row xs:w-full xs:flex-col xs:flex-wrap xs:mt-10 gap-10 md:px-8 md:py-14 ">
                <img
                   loading="lazy"
-                  className=' h-[500px] rounded-lg'
+                  className='xs:w-full xs:flex xs:items-center xs:justify-center  h-[500px] rounded-lg'
                   src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
                   alt={movie.title}
                />
 
-               <article className='w-full flex flex-col items-start'>
-                  <section className='w-full flex flex-col'>
-                     <div className="w-full flex flex-row justify-evenly">
+               <article className='w-full md:flex flex-col md:items-start'>
+                  <section className='w-full flex flex-col flex-wrap'>
+                     <div className="md:w-full flex md:flex-row xs:flex-col md:justify-evenly">
                         <h1 className='w-full text-violet-500 text-5xl pb-2 font-medium'>{movie.title}</h1>
                         <a href='/'
                            className="text-violet hover:bg-mauve3 inline-flex h-[35px] items-center justify-center border-violet-800 rounded-[4px] bg-violet-800 px-[15px] font-medium leading-none outline-none focus:shadow-[0_0_0_2px]">
