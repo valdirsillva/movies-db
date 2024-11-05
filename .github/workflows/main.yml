@@ -23,9 +23,9 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            # valdirsillva/movies-db:${{github.run.number}}
+            valdirsillva/movies-db:${{github.run.number}}
             valdirsillva/movies-db:latest
-            valdirsillva/movies-db:latest
+            
   CD: 
     runs-on: ubuntu-latest
     needs: [CI]
