@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { Header } from '../components/header/header'
 import { MovieService } from '../services/MovieService'
-import { Trailler } from '../components/modal/trailler'
+import { Trailler } from '../components/modal/Trailler'
 import { SpanPercent } from '../styles/SpanPercent'
 
 export const MovieDetail = () => {
